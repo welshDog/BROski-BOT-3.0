@@ -1,0 +1,11 @@
+# Define the function first
+"""
+BROski Bot 3.0 - CheckSystem
+DESCRIPTION NEEDED
+"""
+def some_function_call(argument):
+    print(f"Function called with argument: {argument}")
+    
+# Then use it
+some_value = "unterminated string"
+some_function_call(some_value)

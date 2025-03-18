@@ -1,0 +1,63 @@
+{
+    "exchange": {
+        "name": "binance",
+        "api_key": "YOUR_API_KEY",
+        "api_secret": "YOUR_API_SECRET"
+    },
+    "data_dir": "data_storage",
+    "symbols": ["BTC/USDT", "ETH/USDT"],
+    "timeframes": ["1h", "4h"],
+    "backtest": {
+        "start_date": "2023-01-01",
+        "end_date": "2023-12-31",
+        "initial_capital": 10000,
+        "commission": 0.001
+    },
+    "trading": {
+        "days_of_data": 30,
+        "check_interval": 300,
+        "max_trades": 3,
+        "max_risk": 0.02
+    },
+    "strategies": {
+        "hyperfocus_strategy": {
+            "sensitivity": 1.0,
+            "detection_window": 20,
+            "correlation_threshold": 0.7,
+            "rsi_period": 14,
+            "bollinger_bands_width": 2.0,
+            "volume_factor": 1.5,
+            "macd_fast": 12,
+            "macd_slow": 26,
+            "macd_signal": 9,
+            "atr_period": 14,
+            "atr_multiplier": 2.0,
+            "risk_per_trade": 0.02,
+            "profit_target_ratio": 2.0,
+            "regime_window": 50,
+            "min_trade_score": 70,
+            "exit_score_threshold": 50
+        }
+    },
+    "logging": {
+        "level": "INFO",
+        "file_enabled": true,
+        "console_enabled": true
+    },
+    "notifications": {
+        "enabled": true,
+        "email": {
+            "enabled": false,
+            "smtp_server": "smtp.example.com",
+            "smtp_port": 587,
+            "username": "your_email@example.com",
+            "password": "your_password",
+            "recipients": ["recipient@example.com"]
+        },
+        "telegram": {
+            "enabled": false,
+            "bot_token": "YOUR_BOT_TOKEN",
+            "chat_id": "YOUR_CHAT_ID"
+        }
+    }
+}

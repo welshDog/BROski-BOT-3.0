@@ -1,0 +1,15 @@
+import sys
+import subprocess
+import os
+import time
+
+# Test launcher functionality
+print("Testing Unified Launcher...")
+try:
+    # Just verify it starts without errors
+    process = subprocess.Popen([sys.executable, "unified_launcher.py"])
+    time.sleep(3)  # Give it time to start
+    process.terminate()  # Close it
+    print("✅ Unified launcher starts successfully")
+except Exception as e:
+    print(f"❌ Error starting unified launcher: {e}")

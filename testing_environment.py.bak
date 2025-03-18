@@ -1,0 +1,155 @@
+#!/usr/bin/env python
+import os
+import sys
+import json
+import time
+import ccxt
+import logging
+import threading
+import datetime
+
+# Add project directory to path
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, PROJECT_DIR)
+
+# Import bot components
+from core.broski_engine import BROskiEngine
+from strategies.strategy_manager import StrategyManager
+
+def setup_logging():
+    """Setup logging for testing"""
+    # Create logs directory if doesn't exist
+    logs_dir = os.path.join(PROJECT_DIR, 'logs')
+    os.makedirs(logs_dir, exist_ok=True)
+    
+    # Setup logger
+    logger = logging.getLogger('BROski.Test')
+    logger.setLevel(logging.INFO)
+    
+    # Setup console handler
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(logging.INFO)
+    console_handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
+    logger.addHandler(console_handler)
+    
+    # Setup file handler
+    log_file = os.path.join(logs_dir, f'test_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.log')
+    file_handler = logging.FileHandler(log_file)
+    file_handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
+    logger.addHandler(file_handler)
+    
+    return logger
+
+def test_strategy_signals(engine, logger):
+    """Test strategy signal generation"""
+    logger.info("Testing strategy signals...")
+    
+    # Initialize strategy manager
+    strategy_manager = StrategyManager(engine)
+    
+    # Test for each configured symbol
+    for symbol in engine.config.get('symbols', ['BTC/USDT']):
+        logger.info(f"Testing signal generation for {symbol}")
+        
+        # Test each strategy
+        for strategy_name in strategy_manager.strategies:
+            strategy = strategy_manager.strategies[strategy_name]
+            if strategy.config.get('enabled', False):
+                logger.info(f"Testing {strategy_name} strategy on {symbol}")
+                signal = strategy_manager.evaluate_symbol(strategy_name, symbol)
+                logger.info(f"Signal for {symbol} using {strategy_name}: {signal}")
+
+def test_market_scan(engine, logger):
+    """Test market scanning functionality"""
+    logger.info("Testing market scan...")
+    
+    # Initialize strategy manager
+    strategy_manager = StrategyManager(engine)
+    
+    # Scan configured markets
+    results = strategy_manager.scan_all_markets()
+    
+    # Log results
+    for symbol, data in results.items():
+        consensus = data.get('consensus', 'NEUTRAL')
+        strategy_signals = data.get('signals', {})
+        
+        logger.info(f"Market scan for {symbol}: Consensus = {consensus}")
+        for strategy, signal in strategy_signals.items():
+            logger.info(f"  - {strategy}: {signal}")
+
+def test_price_fetch(engine, logger):
+    """Test price fetching from exchange"""
+    logger.info("Testing price fetching...")
+    
+    # Get configured symbols
+    symbols = engine.config.get('symbols', ['BTC/USDT'])
+    
+    for symbol in symbols:
+        try:
+            # Get ticker for symbol
+            exchange_id = 'mexc'
+            if exchange_id in engine.exchanges:
+                ticker = engine.exchanges[exchange_id].fetch_ticker(symbol)
+                if ticker:
+                    logger.info(f"Current price for {symbol}: {ticker['last']}")
+                else:
+                    logger.error(f"Failed to fetch ticker for {symbol}")
+        except Exception as e:
+            logger.error(f"Error fetching price for {symbol}: {str(e)}")
+
+def run_simulated_trades(engine, logger):
+    """Run simulated trades without actually executing them"""
+    logger.info("Running simulated trades...")
+    
+    # Get configured symbols
+    symbols = engine.config.get('symbols', ['BTC/USDT'])
+    
+    # Initialize strategy manager
+    strategy_manager = StrategyManager(engine)
+    
+    # Run simulated trade cycle
+    for symbol in symbols:
+        try:
+            # Get signals
+            logger.info(f"Getting signals for {symbol}")
+            
+            result = strategy_manager._scan_symbol(symbol)
+            consensus = result.get('consensus', 'NEUTRAL')
+            
+            logger.info(f"Consensus signal for {symbol}: {consensus}")
+            
+            if consensus != 'NEUTRAL':
+                # Simulate trade execution
+                side = consensus.lower()
+                amount = 10.0 / 20000.0  # Simulated $10 at $20,000 price
+                
+                logger.info(f"SIMULATED {side} for {symbol}: Amount: {amount}, Value: $10")
+                
+        except Exception as e:
+            logger.error(f"Error in simulated trade for {symbol}: {str(e)}")
+
+def run_tests():
+    """Run all tests"""
+    # Setup logging
+    logger = setup_logging()
+    logger.info("Starting BROski Bot testing environment")
+    
+    # Initialize engine
+    logger.info("Initializing trading engine")
+    engine = BROskiEngine()
+    
+    if not engine.exchanges:
+        logger.error("No exchanges initialized. Check API keys.")
+        return
+    
+    # Run tests
+    test_price_fetch(engine, logger)
+    test_strategy_signals(engine, logger)
+    test_market_scan(engine, logger)
+    run_simulated_trades(engine, logger)
+    
+    logger.info("All tests completed")
+
+if __name__ == "__main__":
+    run_tests()

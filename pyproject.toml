@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "broski_bot"
+version = "3.0.0"
+description = "BROski Bot 3.0 - Advanced Trading Bot with Dashboard"
+authors = [
+    {name = "Lyndz", email = "user@example.com"}
+]
+requires-python = ">=3.8"
+readme = "README.md"
+license = {text = "MIT"}
+dependencies = [
+    "streamlit>=1.27.0",
+    "pandas>=1.5.0",
+    "numpy>=1.22.0",
+    "plotly>=5.10.0",
+    "requests>=2.28.0",
+    "aiohttp>=3.8.0",
+    "python-dateutil>=2.8.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+]
+
+[tool.setuptools]
+packages = ["ui", "utils", "strategies"]

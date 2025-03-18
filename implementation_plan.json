@@ -1,0 +1,120 @@
+{
+  "created": "2025-03-12",
+  "last_updated": "2025-03-12",
+  "sprints": [
+    {
+      "name": "Sprint 1: Foundation",
+      "start_date": "2025-03-12",
+      "end_date": "2025-03-19",
+      "focus": "Setup quality tools and refactor highest priority files",
+      "tasks": [
+        {
+          "id": "S1-T1",
+          "name": "Setup quality roadmap",
+          "status": "completed",
+          "priority": "high"
+        },
+        {
+          "id": "S1-T2",
+          "name": "Refactor hyperfocus_strategy.py",
+          "status": "pending",
+          "priority": "high"
+        },
+        {
+          "id": "S1-T3",
+          "name": "Add missing docstrings to core files",
+          "status": "pending",
+          "priority": "medium"
+        },
+        {
+          "id": "S1-T4",
+          "name": "Create unit tests for hyperfocus strategy",
+          "status": "pending",
+          "priority": "high"
+        },
+        {
+          "id": "S1-T5",
+          "name": "Update project metrics in README",
+          "status": "pending",
+          "priority": "low"
+        }
+      ]
+    },
+    {
+      "name": "Sprint 2: Dashboard Improvements",
+      "start_date": "2025-03-19",
+      "end_date": "2025-03-26",
+      "focus": "Refactor dashboard code and improve UI components",
+      "tasks": [
+        {
+          "id": "S2-T1",
+          "name": "Refactor broski_dashboard.py",
+          "status": "pending",
+          "priority": "high"
+        },
+        {
+          "id": "S2-T2",
+          "name": "Extract dashboard styling to separate module",
+          "status": "pending",
+          "priority": "medium"
+        },
+        {
+          "id": "S2-T3",
+          "name": "Create reusable UI components",
+          "status": "pending",
+          "priority": "medium"
+        },
+        {
+          "id": "S2-T4",
+          "name": "Add tests for dashboard functionality",
+          "status": "pending",
+          "priority": "medium"
+        },
+        {
+          "id": "S2-T5",
+          "name": "Optimize dashboard performance",
+          "status": "pending",
+          "priority": "low"
+        }
+      ]
+    },
+    {
+      "name": "Sprint 3: Backtesting Framework",
+      "start_date": "2025-03-26",
+      "end_date": "2025-04-02",
+      "focus": "Improve backtesting code and visualization",
+      "tasks": [
+        {
+          "id": "S3-T1",
+          "name": "Refactor backtest_signals.py",
+          "status": "pending",
+          "priority": "high"
+        },
+        {
+          "id": "S3-T2",
+          "name": "Extract data loading to separate module",
+          "status": "pending",
+          "priority": "medium"
+        },
+        {
+          "id": "S3-T3",
+          "name": "Create visualization module for backtest results",
+          "status": "pending",
+          "priority": "medium"
+        },
+        {
+          "id": "S3-T4",
+          "name": "Implement strategy pattern for backtesting",
+          "status": "pending",
+          "priority": "medium"
+        },
+        {
+          "id": "S3-T5",
+          "name": "Add performance benchmarks for strategies",
+          "status": "pending",
+          "priority": "low"
+        }
+      ]
+    }
+  ]
+}

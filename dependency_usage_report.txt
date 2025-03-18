@@ -1,0 +1,146 @@
+BROski Bot 3.0 - Dependency Usage Report
+==================================================
+
+USAGE SUMMARY:
+--------------------------------------------------
+colorama: used in 84 files
+pandas: used in 72 files
+numpy: used in 58 files
+matplotlib: used in 32 files
+ccxt: used in 20 files
+requests: used in 10 files
+backtrader: used in 5 files
+seaborn: used in 3 files
+psutil: used in 2 files
+scipy: used in 2 files
+tqdm: used in 2 files
+tkhtmlview: used in 1 files
+markdown: used in 1 files
+jinja2: used in 1 files
+
+UNUSED PACKAGES:
+--------------------------------------------------
+pandas-ta
+pillow
+scikit-learn
+yfinance
+telethon
+cryptg
+joblib
+statsmodels
+pywin32
+winshell
+propcache
+
+DETAILED USAGE:
+--------------------------------------------------
+
+colorama:
+  - archive\first_time_setup.py
+  - archive\misc\easy_update.py
+  - archive\misc\ml_dashboard.py
+  - archive\misc\ml_integration_example.py
+  - archive\misc\test_initial_setup.py
+  - backtest_signals.py
+  - backup_dashboard.py
+  - backups\dashboard_backup_20250311_010203\launch_dashboard.py
+  - backups\dashboard_backup_20250311_010532\launch_dashboard.py
+  - clear_emergency.py
+  - ... and 74 more files
+
+pandas:
+  - archive\misc\ml_dashboard.py
+  - archive\misc\ml_integration_example.py
+  - backtest_signals.py
+  - backups\dashboard_backup_20250311_010203\broski_dashboard.py
+  - backups\dashboard_backup_20250311_010203\fix_dashboard.py
+  - backups\dashboard_backup_20250311_010203\simple_fix.py
+  - backups\dashboard_backup_20250311_010532\broski_dashboard.py
+  - backups\dashboard_backup_20250311_010532\fix_dashboard.py
+  - backups\dashboard_backup_20250311_010532\simple_fix.py
+  - core\broski_engine.py
+  - ... and 62 more files
+
+numpy:
+  - archive\misc\ml_dashboard.py
+  - archive\misc\ml_integration_example.py
+  - backtest_signals.py
+  - backups\dashboard_backup_20250311_010203\broski_dashboard.py
+  - backups\dashboard_backup_20250311_010203\fix_dashboard.py
+  - backups\dashboard_backup_20250311_010203\simple_fix.py
+  - backups\dashboard_backup_20250311_010532\broski_dashboard.py
+  - backups\dashboard_backup_20250311_010532\fix_dashboard.py
+  - backups\dashboard_backup_20250311_010532\simple_fix.py
+  - core\broski_engine.py
+  - ... and 48 more files
+
+matplotlib:
+  - archive\misc\ml_dashboard.py
+  - backtest_signals.py
+  - direct_trader.py
+  - ml_dashboard.py
+  - parameter_optimizer.py
+  - python\performance_tracker.py
+  - python\strategy_optimizer.py
+  - python\test_signals.py
+  - python\trade_results_window.py
+  - python\train_model.py
+  - ... and 22 more files
+
+ccxt:
+  - archive\misc\test_initial_setup.py
+  - archive\misc\testing_environment.py
+  - core\broski_engine.py
+  - monitor\cli.py
+  - python\bot_runner.py
+  - python\cli.py
+  - python\data_fetcher.py
+  - python\direct_bot.py
+  - python\emergency_kill.py
+  - python\exchange_connector.py
+  - ... and 10 more files
+
+requests:
+  - backups\dashboard_backup_20250311_010203\fix_dashboard.py
+  - backups\dashboard_backup_20250311_010532\fix_dashboard.py
+  - fix_dashboard.py
+  - fix_telegram.py
+  - python\ip_whitelist_helper.py
+  - setup_discord.py
+  - setup_telegram.py
+  - strategies\ml_strategies\sentiment_analysis.py
+  - test_discord.py
+  - utils\notification_manager.py
+
+backtrader:
+  - strategies\backtrader_ml_strategy.py
+  - utils\backtest_runner.py
+  - utils\backtrader_integration.py
+  - utils\backtrader_patch.py
+  - utils\backtrader_tester.py
+
+seaborn:
+  - strategies\portfolio_management\correlation_analysis.py
+  - utils\backtest_reporter.py
+  - utils\performance_tracker.py
+
+psutil:
+  - python\emergency_kill_fix.py
+  - python\system_report_fix.py
+
+scipy:
+  - strategies\backtesting\historical_validation.py
+  - strategies\ml_strategies\regime_detection.py
+
+tqdm:
+  - strategies\backtesting\historical_validation.py
+  - utils\enhanced_backtest.py
+
+tkhtmlview:
+  - ui\broski_help_system.py
+
+markdown:
+  - ui\broski_help_system.py
+
+jinja2:
+  - utils\backtest_reporter.py

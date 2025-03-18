@@ -1,0 +1,44 @@
+#!/usr/bin/env python
+"""
+BROski Bot 3.0 - Dashboard Launcher
+Simple utility to start the BROski Brain Dashboard
+"""
+import os
+import sys
+import subprocess
+import time
+from colorama import init, Fore, Style
+
+# Initialize colorama
+init(autoreset=True)
+
+def main():
+    """Launch the BROski Brain Dashboard"""
+    print(f"{Fore.CYAN}=" * 70)
+    print(f"{Fore.CYAN}BROski Bot 3.0 - Brain Dashboard")
+    print(f"{Fore.CYAN}=" * 70)
+    
+    # Get the path to the dashboard file
+    dashboard_path = os.path.join("ui", "broski_dashboard.py")
+    
+    # Check if the file exists
+    if not os.path.exists(dashboard_path):
+        print(f"{Fore.RED}Error: Dashboard file not found at {dashboard_path}")
+        print(f"{Fore.YELLOW}Make sure you're running this script from the root directory.")
+        return
+    
+    # Launch the dashboard
+    print(f"{Fore.GREEN}Launching BROski Brain Dashboard...")
+    print(f"{Fore.YELLOW}This will open in your default web browser.")
+    print(f"{Fore.YELLOW}Press Ctrl+C in this terminal to stop the dashboard.")
+    
+    try:
+        subprocess.run(["streamlit", "run", dashboard_path])
+    except KeyboardInterrupt:
+        print(f"\n{Fore.YELLOW}Dashboard stopped.")
+    except Exception as e:
+        print(f"{Fore.RED}Error starting dashboard: {str(e)}")
+        print(f"{Fore.YELLOW}Make sure streamlit is installed: pip install streamlit")
+
+if __name__ == "__main__":
+    main()
