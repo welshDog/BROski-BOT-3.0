@@ -1,3 +1,15 @@
+> ## 🗄️ ARCHIVED / LEGACY BUILD
+> **This repo has been superseded.** It's kept public as historical reference only.
+>
+> 👉 **Active bot lives here:** [BROski-Bot](https://github.com/welshDog/BROski-Bot)
+>
+> 👉 **Full active stack:**
+> - 🏰 Main Hub → [HYPERFOCUS-UNIFIED-EMPIRE](https://github.com/welshDog/HYPERFOCUS-UNIFIED-EMPIRE)
+> - ⚡ Engine → [HyperCode-V2.4](https://github.com/welshDog/HyperCode-V2.4)
+> - 🌌 Portal → [HyperFocus-Zone-Portal](https://github.com/welshDog/HyperFocus-Zone-Portal)
+>
+> *Not maintained.*
+
 # BROski Bot 3.0 - Ultra Hub
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
